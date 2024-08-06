@@ -1,5 +1,3 @@
-package Othello;
-
 import java.util.Scanner;
 
 public class Player {

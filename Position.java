@@ -1,5 +1,3 @@
-package Othello;
-
 public abstract class Position {
     private char piece;
     public static final char EMPTY = '.';

@@ -1,5 +1,3 @@
-package Othello;
-
 import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -176,9 +174,14 @@ public class Game {
         String p2 = "";
         String current_p = "";
         String boardState = "";
+        String safeFile;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter your save filename:");
+        safeFile = scanner.nextLine();
 
         try {
-            BufferedReader fileReader = new BufferedReader(new FileReader("src/mySaveFile.txt"));
+            BufferedReader fileReader = new BufferedReader(new FileReader("src/"+safeFile+".txt"));
             p1 = fileReader.readLine().trim();
             p2 = fileReader.readLine().trim();
             current_p = fileReader.readLine().trim();
@@ -199,9 +202,11 @@ public class Game {
     }
 
     private void save(Board board){ // save game
-        System.out.println("Saving...");
+        System.out.println("Saving..." +
+                "\nName your file name:");
+        String fileName = Sc.nextLine();
         try {
-            BufferedWriter fileWriter = new BufferedWriter(new FileWriter("src/mySaveFile.txt"));
+            BufferedWriter fileWriter = new BufferedWriter(new FileWriter("src/"+fileName+ ".txt"));
             fileWriter.write(player1.getName()+"\n"
                     +player2.getName()+"\n"
                     +current.getName()+"\n"
